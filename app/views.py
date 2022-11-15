@@ -9,4 +9,8 @@ def index(request):
     return render(request, 'index.html',re_data)
 
 def blog(request):
-    return render(request, 'blog.html')
+    research_blog = CurrentResearch.objects.all()
+    # for i in research:
+    #     print(i)
+    re_data_blog = {'CurrentResearch_blog': research_blog}
+    return render(request, 'blog.html',re_data_blog)
