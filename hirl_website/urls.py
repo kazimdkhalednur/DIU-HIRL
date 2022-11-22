@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import index,blog
+from app.views import index,blog,publication,event
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('blog/', blog, name='blog'),
+    path('publication/', publication, name='publication'),
+    path('event/', event, name='event'),
 ]
 
 if settings.DEBUG:

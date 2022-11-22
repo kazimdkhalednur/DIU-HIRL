@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>HIRL DIU</title>
+  <title>HIRL HOME</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,7 +28,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'app/assets/css/main.css' %}" rel="stylesheet">
-
+  <link href="{% static 'app/assets/css/all.css' %}" rel="stylesheet">
+  
+  
   <!-- =======================================================
   * Template Name: Impact - v1.1.1
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
@@ -58,10 +60,10 @@
   <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="#hero" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>HIRL<span>.</span></h1>
+        <img src="{% static 'app/assets/img/logo.png' %}" alt="">
+        <!-- <h1>HIRL<span>.</span></h1> -->
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -70,6 +72,8 @@
           <li><a href="#services">Research</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="{% url 'publication' %}">Publications</a></li>
+          <li><a href="{% url 'event' %}">Events</a></li>
           <li><a href="#join">Join</a></li>
           <li><a href="#contact">Contact</a></li>
           
@@ -88,15 +92,15 @@
     <div class="container position-relative">
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-          <h2>Welcome to <span>Impact</span></h2>
-          <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <h2>Welcome to <span>Health Informatics Research Lab (HIRL)</span></h2>
+          <p>HIRL is to propose and develop cutting-edge Health Informatics based research and frameworks, primarily based on cutting-edge AI and computer vision research methodologies, along with other areas of computer science principles, that could effectively cater to our vision of addressing contemporary issues in healthcare and everyday wellness.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2">
-          <img src="{% static 'app/assets/img/hero-img.svg' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+          <img src="{% static 'app/assets/img/hero-img.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
         </div>
       </div>
     </div>
@@ -262,27 +266,23 @@
           <h2>On Going Research</h2>
         </div>
 
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        
 <!-- start Dynamic Current Research -->
           {% for i in CurrentResearch %}
 
-          <div class=" col-md-6">
+          <div class=" col-md-4">
             <div class="service-item  position-relative">
-              <!-- <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div> -->
-                <!-- <h3>{{i.title}}</h3>
-                <p>{{i.description}}</p> -->
-                <div class="card" style="width: 30rem;">
-                  <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+                <div class="card" style="width: auto;">
+                  <img class="card-img-top  w-50 p-3" src="{{i.image.url}}" alt="Card image">
                   <div class="card-body">
                     <h5 class="card-title">{{i.title}}</h5>
-                    <!-- <p class="card-text">{{i.description}}</p> -->
                     <a href="{% url 'blog' %}" class="btn btn-primary">Read More</a>
                   </div>
                 </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+          
           {% endfor %}   
         
 <!--  Dynamic Current Research -->
@@ -421,149 +421,33 @@
     </section><!-- End Testimonials Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio sections-bg">
-      <div class="container" data-aos="fade-up">
+    <section id="portfolio" class="portfolio sections-bg ">
+      <div class="container " data-aos="fade-up">
 
         <div class="section-header">
           <h2>Portfolio</h2>
           <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
         </div>
 
-        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+        <div class="portfolio-isotope " data-portfolio-filter="*" data-portfolio-layout="" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
-          <div>
-            <ul class="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-product">Product</li>
-              <li data-filter=".filter-branding">Branding</li>
-              <li data-filter=".filter-books">Books</li>
-            </ul><!-- End Portfolio Filters -->
+          <div class="">
+            <div class="row gy-4 portfolio-container ">
+              {% for i in research %}
+              <div class="col-xl-4 col-md-6 portfolio-item ">
+                <div class="portfolio-wrap">
+                  <a href="{{i.image.url}}"  class="glightbox"><img src="{{i.image.url}}"  class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h4><a href="{% url 'blog' %}" title="More Details">{{i.name}}</a></h4>
+                   
+                  </div>
+                </div>
+              </div><!-- End Portfolio Item -->
+              {% endfor %} 
+            </div><!-- End Portfolio Container -->
           </div>
 
-          <div class="row gy-4 portfolio-container">
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/app-1.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/app-1.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/product-1.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/product-1.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/branding-1.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/branding-1.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/books-1.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/app-2.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/app-2.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/product-2.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/product-2.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/branding-2.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/branding-2.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/books-2.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/books-2.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/app-3.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/app-3.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/product-3.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/product-3.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/branding-3.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/branding-3.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="{% static 'app/assets/img/portfolio/books-3.jpg' %}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{% static 'app/assets/img/portfolio/books-3.jpg' %}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
+          
 
         </div>
 
@@ -578,125 +462,219 @@
 
         <div class="section-header">
           <h2>Our Team</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+        </div>
+        <div>
+          <div>
+            <h4 class="text-center font-weight-bold">Lab Director</h4>
+          </div>
+  
+          <div class="row gy-4 mt-2 d-flex justify-content-center">
+            {% for l in director_data %}
+            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <h4>{{l.name}}</h4>
+                <span>{{l.designation}}</span>
+                <span>{{l.institution}}</span>
+                <span>{{l.email}}</span>
+                <div class="social">
+                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
+                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
+                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
+                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
+                
+                </div>
+              </div>
+            </div>
+            {% endfor %}  
+          </div>
         </div>
 
-        <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <img src="{% static 'app/assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
-              <h4>Walter White</h4>
-              <span>Web Development</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+        <div class="mt-4">
+          <div>
+            <h4 class="text-center font-weight-bold">Lab Advisor</h4>
+          </div>
+  
+          <div class="row gy-4 mt-2 d-flex justify-content-center">
+            {% for l in advisor_data %}
+            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <h4>{{l.name}}</h4>
+                <span>{{l.designation}}</span>
+                <span>{{l.institution}}</span>
+                <span>{{l.email}}</span>
+                <div class="social">
+                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
+                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
+                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
+                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
+                
+                </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="{% static 'app/assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
-              <h4>Sarah Jhinson</h4>
-              <span>Marketing</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="{% static 'app/assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
-              <h4>William Anderson</h4>
-              <span>Content</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="{% static 'app/assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+            {% endfor %}  
+          </div>
         </div>
 
-      </div>
+
+        <div class="mt-4">
+          <div>
+            <h4 class="text-center font-weight-bold">Research Co-ordinators</h4>
+          </div>
+  
+          <div class="row gy-4 mt-2 d-flex justify-content-center">
+            {% for l in coordinator_data %}
+            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <h4>{{l.name}}</h4>
+                <span>{{l.designation}}</span>
+                <span>{{l.institution}}</span>
+                <span>{{l.email}}</span>
+                <div class="social">
+                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
+                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
+                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
+                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
+                
+                </div>
+              </div>
+            </div>
+            {% endfor %}  
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <div>
+            <h4 class="text-center font-weight-bold">Researchers</h4>
+          </div>
+  
+          <div class="row gy-4 mt-2 d-flex justify-content-center">
+            {% for l in researcher_data %}
+            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <h4>{{l.name}}</h4>
+                <span>{{l.designation}}</span>
+                <span>{{l.institution}}</span>
+                <span>{{l.email}}</span>
+                <div class="social">
+                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
+                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
+                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
+                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
+                
+                </div>
+              </div>
+            </div>
+            {% endfor %}  
+          </div>
+        </div>
+
+
+        <div class="mt-4">
+          <div>
+            <h4 class="text-center font-weight-bold">Lab Members</h4>
+          </div>
+  
+          <div class="row gy-4 mt-2 d-flex justify-content-center">
+            {% for l in member_data %}
+            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <h4>{{l.name}}</h4>
+                <span>{{l.designation}}</span>
+                <span>{{l.institution}}</span>
+                <span>{{l.email}}</span>
+                <div class="social">
+                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
+                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
+                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
+                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
+                
+                </div>
+              </div>
+            </div>
+            {% endfor %}  
+          </div>
+        </div>
+       
+
+      </div class="mt-4">
     </section><!-- End Our Team Section -->
 
 
    
 
     <!-- ======= Join Section ======= -->
-    <section id="join" class="contact">
+    <section id="join" class="team">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Join with US</h2>
-          <p>Apply for Membership</p>
+          <h2>Join with Us</h2>
+          <p class="fw-bold">Apply for Membership</p>
         </div>
 
-        <div class="row gx-lg-0 gy-4">
+        <div class="row gy-4">
 
-          <div class="">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          <div class="" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6 form-group mt-2">
+                    <input type="text" name="name" class="form-control " id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-2">
+                    <input type="text" name="designation" class="form-control" id="designation" placeholder="Designation" required>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="institution" class="mt-4 form-control" id="institution" placeholder="Institution" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-5 mt-md-0">
+                    <input type="email" class="mt-4 form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
                 </div>
-                <div class="col-md-6 form-group">
-                  <input type="text" name="designation" class="form-control" id="designation" placeholder="Designation" required>
+                <div class="form-group mt-3">
+                  <input class="mt-4 form-control" name="gs" id="fb" placeholder="Google Scholor Profile" required>
                 </div>
-                <div class="col-md-6 form-group">
-                  <input type="text" name="institution" class="form-control" id="institution" placeholder="Institution" required>
+                <div class="form-group mt-3">
+                  <input class="mt-4 form-control" name="rg" id="linkedin" placeholder="ResearchGate Profile" required>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                <div class="form-group mt-3">
+                  <input class="mt-4 form-control" name="oc" id="linkedin" placeholder="Orcid Profile" required>
                 </div>
-              </div>
-              <div class="form-group mt-3">
-                <input class="form-control" name="fb" id="fb" placeholder="Facebook Profile" required>
-              </div>
-              <div class="form-group mt-3">
-                <input class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn Profile" required>
-              </div>
-              <div class="form-group mt-3">
-                <label for="formFileLg" class="form-label">Upload Your Photo</label>
-                <input class="form-control form-control-lg" id="formFileLg" type="file" />
-              </div>
-              <div class="text-center "><button type="submit">Submit</button></div>
-            </form>
-          </div><!-- End Join Form -->
+                <div class="form-group mt-3">
+                  <input class="mt-4 form-control" name="ln" id="linkedin" placeholder="LinkedIn Profile" required>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="formFileLg" class="text-left">Upload Your Photo</label>
+                  
+                  <input class="mt-2 form-control" name="upload" id="formFileLg" type="file" />
+                </div>
+                <div>
+                  <input class="mt-3 btn btn-lg btn-primary" type="submit" name="action" value="Submit">
+                </div>
+              </form>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!-- End Team Member -->
+
+          <!-- End Team Member -->
 
         </div>
 
       </div>
-    </section><!-- End Join Section -->
+    </section>
+   <!-- End Join Section -->
 
 
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="contact" class="team contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -713,7 +691,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>Daffodil International University, Daffodil Smart City, Ashulia, Dhaka, Bangladesh.</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -721,7 +699,8 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <p>zahid.cse@diu.edu.bd
+                  </p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -729,7 +708,7 @@
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
+                  <p>+8801672580748</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -737,7 +716,7 @@
                 <i class="bi bi-clock flex-shrink-0"></i>
                 <div>
                   <h4>Open Hours:</h4>
-                  <p>Mon-Sat: 11AM - 23PM</p>
+                  <p>24 Hours</p>
                 </div>
               </div><!-- End Info Item -->
             </div>
@@ -745,28 +724,32 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
+            <div class="" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <form  method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6 form-group mt-5 mt-md-0">
+                      <input type="text" name="c_name" class="form-control mt-5 " id="name" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group mt-5 mt-md-0">
+                      <input type="email" class="mt-5 form-control" name="c_email" id="email" placeholder="Your Email" required>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4">
+                    <input class="mt-5 form-control" name="c_subject" id="fb" placeholder="Subject" required>
+                  </div>
+                  
+                  <div class="form-group mt-4">
+                    <textarea class="form-control mt-5" name="c_message" rows="7" placeholder="Message" required></textarea>
+                  </div>
+                  <div>
+                    <input class="mt-4 btn btn-lg btn-primary" type="submit" name="aa" value="Send">
+                  </div>
+                </form>
               </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+            </div>
           </div><!-- End Contact Form -->
 
         </div>
