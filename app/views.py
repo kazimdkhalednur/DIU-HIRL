@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import CurrentResearch, Members, Publication, Event,EventImage,Research
+from .models import  Team, Publication, Event,EventImage,Research,About,WE_DO,Achievement
 from django.core.mail import send_mail
 # Create your views here.
 
@@ -10,7 +10,7 @@ def index(request):
     
     if request.method == 'POST':
         try:
-            member = Members()
+            member = Team()
             member.name = request.POST.get('name')
             member.designation = request.POST.get('designation')
             member.institution = request.POST.get('institution')
@@ -48,12 +48,32 @@ def index(request):
     
 
     research = Research.objects.all()
-    director_data = Members.objects.filter(m_post='LD')
-    advisor_data = Members.objects.filter(m_post='LA')
-    coordinator_data = Members.objects.filter(m_post='RC')
-    researcher_data = Members.objects.filter(m_post='R')
-    member_data = Members.objects.filter(m_post='LM')
-    data = {'research': research,'director_data':director_data,'advisor_data':advisor_data,'coordinator_data':coordinator_data,'researcher_data':researcher_data,'member_data':member_data}
+    director_data = Team.objects.filter(m_post='LD')
+    advisor_data = Team.objects.filter(m_post='LA')
+    coordinator_data = Team.objects.filter(m_post='RC')
+    researcher_data = Team.objects.filter(m_post='R')
+    member_data = Team.objects.filter(m_post='LM')
+    event_data = Event.objects.all()
+    about_data = About.objects.all()
+    do_data = WE_DO.objects.all()
+    total_members = Team.objects.all()
+    count_member = len(total_members)
+    total_publication = Publication.objects.all()
+    count_publication = len(total_publication)
+    total_achievement = Achievement.objects.all()
+    count_achievement = len(total_achievement)
+    # for i in do_data:
+    #     print(i.we_do)
+    data = {'research': research,'director_data':director_data,
+    'advisor_data':advisor_data,'coordinator_data':coordinator_data,
+    'researcher_data':researcher_data,'member_data':member_data,
+    'event_data':event_data,'about_data':about_data,
+    'do_data':do_data,'count_member':count_member,
+    'count_publication':count_publication,
+    'count_achievement':count_achievement,}
+
+    # for i in count_member:
+    #     print(i)
 
     return render(request, 'index.html',data)
 
@@ -83,11 +103,11 @@ def publication(request):
 def event(request):
     event_data = Event.objects.all()
     event_img = EventImage.objects.all()
-    for i in event_data:
-        print(i.title,i.image)
-    print("******")
-    for i in event_img:
-        print(i.event,i.images)
+    # for i in event_data:
+    #     print(i.title,i.image)
+    # print("******")
+    # for i in event_img:
+    #     print(i.event,i.images)
 
     data = {'event_data': event_data,'event_img': event_img}
     return render(request, 'event.html',data)
