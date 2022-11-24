@@ -1056,7 +1056,7 @@ section {
 
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
-  border-radius: 50px;
+  border-radius: 10px;
   margin-right: 15px;
 }
 
@@ -1190,7 +1190,8 @@ section {
 
 .portfolio .portfolio-wrap img {
   transition: 0.3s;
-  position: relative;
+  position: absolute;
+  right: 100px;
   z-index: 1;
 }
 
@@ -1231,9 +1232,10 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
+/* .portfolio-details .portfolio-details-slider img {
+  width: 20px;
+  height: 20px;
+} */
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;

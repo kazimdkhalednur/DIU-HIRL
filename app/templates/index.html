@@ -273,7 +273,7 @@
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center">
             {% for m in client_data %}
-            <div class="swiper-slide"><img src="{{m.image.url}}" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{{m.image.url}}" width="400" height="150" class="img-fluid" alt=""></div>
             {% endfor %}
           </div>
         </div>
@@ -382,23 +382,19 @@
           <div class="">
             <div class="row gy-4 portfolio-container ">
               {% for i in research %}
-              <div class="col-xl-4 col-md-6 portfolio-item ">
+              <div class="col-xl-3 col-md-6 portfolio-item ">
                 <div class="portfolio-wrap">
-                  <a href="{{i.image.url}}"  class="glightbox"><img src="{{i.image.url}}"  class="flex-shrink-0" alt=""></a>
+                  <a href="{{i.image.url}}"  class=""><img src="{{i.image.url}}" width="260" height="200" class="" alt=""></a>
                   <div class="portfolio-info">
                     <h4><a href="{% url 'blog' %}" title="More Details">{{i.name}}</a></h4>
                    
                   </div>
                 </div>
-              </div><!-- End Portfolio Item -->
+              </div>
               {% endfor %} 
-            </div><!-- End Portfolio Container -->
+            </div>
           </div>
-
-          
-
         </div>
-
       </div>
     </section>
     
@@ -421,7 +417,7 @@
             {% for l in director_data %}
             <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
                 <h4>{{l.name}}</h4>
                 <span>{{l.designation}}</span>
                 <span>{{l.institution}}</span>
@@ -449,7 +445,7 @@
             {% for l in advisor_data %}
             <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <img src="{{l.img.url}}" width="350" height="300" class="" alt="Photo">
                 <h4>{{l.name}}</h4>
                 <span>{{l.designation}}</span>
                 <span>{{l.institution}}</span>
@@ -478,7 +474,7 @@
             {% for l in coordinator_data %}
             <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
                 <h4>{{l.name}}</h4>
                 <span>{{l.designation}}</span>
                 <span>{{l.institution}}</span>
@@ -503,9 +499,9 @@
   
           <div class="row gy-4 mt-2 d-flex justify-content-center">
             {% for l in researcher_data %}
-            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <img src="{{l.img.url}}" width="300" height="200" class="img-fluid" alt="Photo">
                 <h4>{{l.name}}</h4>
                 <span>{{l.designation}}</span>
                 <span>{{l.institution}}</span>
@@ -531,20 +527,20 @@
   
           <div class="row gy-4 mt-2 d-flex justify-content-center">
             {% for l in member_data %}
-            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{l.img.url}}" class="img-fluid" alt="Photo">
+                <img src="{{l.img.url}}" width="150" height="100" class="img-fluid" alt="Photo">
                 <h4>{{l.name}}</h4>
                 <span>{{l.designation}}</span>
-                <span>{{l.institution}}</span>
+                <!-- <span>{{l.institution}}</span> -->
                 <span>{{l.email}}</span>
-                <div class="social">
+                <!-- <div class="social">
                   <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
                   <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
                   <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
                   <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
                 
-                </div>
+                </div> -->
               </div>
             </div>
             {% endfor %}  
