@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
-from .models import  Team, Publication, Event,EventImage,Research,About,WE_DO,Achievement
+from .models import  Team, Publication, Event,EventImage,Research,About,WE_DO,Achievement, Client, Testimonial
 from django.core.mail import send_mail
 # Create your views here.
 
@@ -62,6 +62,8 @@ def index(request):
     count_publication = len(total_publication)
     total_achievement = Achievement.objects.all()
     count_achievement = len(total_achievement)
+    client_data = Client.objects.all()
+    testimonial_data = Testimonial.objects.all()
     # for i in do_data:
     #     print(i.we_do)
     data = {'research': research,'director_data':director_data,
@@ -70,7 +72,8 @@ def index(request):
     'event_data':event_data,'about_data':about_data,
     'do_data':do_data,'count_member':count_member,
     'count_publication':count_publication,
-    'count_achievement':count_achievement,}
+    'count_achievement':count_achievement,
+    'client_data':client_data,'testimonial_data':testimonial_data,}
 
     # for i in count_member:
     #     print(i)

@@ -10,6 +10,20 @@ class WE_DO(models.Model):
 
 
 
+class Client(models.Model):
+    image = models.ImageField(upload_to="clients/%y",null=True)
+
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=50)
+    designation = models.CharField(max_length=30)
+    feedback = models.TextField(max_length=1000)
+    image = models.ImageField(upload_to="testimonial/%y",null=True)
+
+    def __str__(self):
+        return self.name
+
 class Achievement(models.Model):
     title = models.CharField(max_length=100)
 
