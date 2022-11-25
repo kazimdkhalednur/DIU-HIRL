@@ -108,9 +108,47 @@ def event(request):
     event_img = EventImage.objects.all()
     # for i in event_data:
     #     print(i.title,i.image)
-    # print("******")
-    # for i in event_img:
-    #     print(i.event,i.images)
+    print("******")
+    # for i in event_data:
+    #     print(i.title)
+        
+    for j in event_img:
+        # print(j.event,j.images)
+        # print(j.images)
+        print(j)
+        print("!!")
+        print(j.event)
+        print("$$")
+        if j != j.event:
+            print("h")
+        else:
+            print("C")
+            # print(j.images)
+            # break
+        # else:
+            # print(j)
+        
+            
+    print("##")
+    # for i in event_data:
+    #     for j in event_img:
+    #         if i.title in j.event:
+    #             print("h")
+            # if j.event == i.title:
+            #     # print(j.images)
+            #     print("h")
+            #     break
+            # else:
+            #     print(j.images)
+    # a={}
+
+    # for i in event_data:
+    #     for j in event_img:
+    #         a[f'{i.title}'] = j.images
+
+    # print(a)   
+            
+    print("******")
 
     data = {'event_data': event_data,'event_img': event_img}
     return render(request, 'event.html',data)

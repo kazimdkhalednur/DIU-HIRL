@@ -96,7 +96,7 @@ class Publication(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=250)
-    image = models.FileField(blank=True)
+    # image = models.FileField(blank=True)
  
     def __str__(self):
         return self.title

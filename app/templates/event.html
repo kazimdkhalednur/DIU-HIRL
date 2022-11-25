@@ -47,24 +47,24 @@
         <h2>Events</h2>
       </div>
 
-      {% for l in event_data %}
+      {% for l in event_img %}
       <div class="portfolio-isotope " data-portfolio-filter="*" data-portfolio-layout="" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
         
         
         <div class="mt-5">
-            <h2>{{l.title}}</h2>
+            <h2>{{l.event}}</h2>
           <div class="row gy-4 portfolio-container mt-2">
-            {% for i in event_img %}
+            <!-- {% for i in event_img %} -->
             
             <div class="col-xl-4 col-md-6 portfolio-item ">
               
               <div class="portfolio-wrap">
-                <a href="{{i.images.url}}"  class="glightbox"><img src="{{i.images.url}}"  class="img-fluid" alt=""></a>
+                <a href="{{l.images.url}}"  class="glightbox"><img src="{{l.images.url}}"  class="img-fluid" alt=""></a>
                 
               </div>
             </div>
             <!-- End Portfolio Item -->
-            {% endfor %} 
+            <!-- {% endfor %}  -->
           </div><!-- End Portfolio Container -->
         </div>
 
