@@ -804,7 +804,7 @@ section {
 # Stats Counter Section
 --------------------------------------------------------------*/
 .stats-counter {
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .stats-counter .stats-item {
@@ -1182,9 +1182,9 @@ section {
 }
 
 .portfolio .portfolio-wrap {
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  height: 100%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  /* border-radius: 10px; */
+  /* height: 100%; */
   overflow: hidden;
 }
 

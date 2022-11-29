@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Team,Publication,Event,EventImage, Research, About, WE_DO, Achievement, Client, Testimonial
+from .models import *
 # Register your models here.
 admin.site.register(Team)
 admin.site.register(Publication)
@@ -9,19 +9,22 @@ admin.site.register(WE_DO)
 admin.site.register(Achievement)
 admin.site.register(Client)
 admin.site.register(Testimonial)
-# admin.site.register(Event)
+admin.site.register(Event)
+admin.site.register(Year)
+admin.site.register(Conference)
+admin.site.register(Journal)
 # admin.site.register(EventImage)
 
-class EventImageAdmin(admin.StackedInline):
-    model = EventImage
+# class EventImageAdmin(admin.StackedInline):
+#     model = EventImage
  
-@admin.register(Event)
-class PostAdmin(admin.ModelAdmin):
-    inlines = [EventImageAdmin]
+# @admin.register(Event)
+# class PostAdmin(admin.ModelAdmin):
+#     inlines = [EventImageAdmin]
  
-    class Meta:
-       model = Event
+#     class Meta:
+#        model = Event
  
-@admin.register(EventImage)
-class EventImageAdmin(admin.ModelAdmin):
-    pass
+# @admin.register(EventImage)
+# class EventImageAdmin(admin.ModelAdmin):
+#     pass

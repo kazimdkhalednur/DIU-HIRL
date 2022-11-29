@@ -72,7 +72,11 @@ class Team(models.Model):
     def __str__(self):
         return self.name
 
+class Year(models.Model):
+    published_year = models.CharField(max_length=5)
 
+    def __str__(self):
+        return str(self.published_year)
 
 class Publication(models.Model):
 
@@ -85,28 +89,50 @@ class Publication(models.Model):
     ]
 
     publication_type = models.CharField(max_length=1,choices=JOURNAL_CHOICES, default=JOURNAL_PUBLICATION)
-    publisher_name = models.CharField(max_length=30)
-    research_title = models.CharField(max_length=100)
+    
+    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
+    reference = models.TextField(max_length=500, default=True)
     paper_link = models.URLField(max_length=300,blank=True)
 
     def __str__(self):
-        return self.publisher_name
+        return str(self.category)
+class Journal(models.Model):
+
+    paper_type = models.CharField(max_length=10,default="Journal")
+    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
+    reference = models.TextField(max_length=500, default=True)
+    paper_link = models.URLField(max_length=300,blank=True)
+
+    def __str__(self):
+        return str(self.paper_type)
+
+
+class Conference(models.Model):
+
+    paper_type = models.CharField(max_length=10,default="Conference")
+    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
+    reference = models.TextField(max_length=500, default=True)
+    paper_link = models.URLField(max_length=300,blank=True)
+
+    def __str__(self):
+        return str(self.paper_type)
 
 
 
 class Event(models.Model):
     title = models.CharField(max_length=250)
-    # image = models.FileField(blank=True)
+    image = models.FileField(upload_to = 'event/%y')
+    drive_link = models.URLField(max_length=300,blank=True)
  
     def __str__(self):
         return self.title
 
-class EventImage(models.Model):
-    event = models.ForeignKey(Event, default=None, on_delete=models.CASCADE)
-    images = models.FileField(upload_to = 'event/%y')
+# class EventImage(models.Model):
+#     event = models.ForeignKey(Event, default=None, on_delete=models.CASCADE)
+#     images = models.FileField(upload_to = 'event/%y')
  
-    def __str__(self):
-        return self.event.title
+#     def __str__(self):
+#         return self.event.title
 
 
     

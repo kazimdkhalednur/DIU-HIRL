@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+
+<section id="services" class="services sections-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div>
+      <div class="section-header">
+        <h2>Journal</h2>
+        <p>All Publications</p>
+      </div>
+      <div>
+       
+      <div>
+        <div class="row gy-4 mt-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="">
+            <div class="">
+             
+                
+                
+                <div class="row gy-4 mt-2 d-flex justify-content-start">
+                  <div class="col-xl-2 col-md-2">
+                  
+                    <div class="">
+                      <ul>
+                        <li><a href="{% url 'journal' %}">All</a> </li>
+                        {% for l in categories %}
+                        
+                        <li><a href="{% url 'journal' %}?category={{l.published_year}}">{{l.published_year}}</a> </li>
+                        
+                        {% endfor %} 
+                      </ul>
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                  <div class="col-xl-10 col-md-6 d-flex">
+                    <div class="table-responsive">
+                        <ol>
+                           
+                            {% for l in journal %}
+                            
+                            <li><a href="{{l.paper_link}}">{{l.reference}}</a> </li>
+                            <br>
+                            
+                            {% endfor %} 
+                        </ol>
+                    </div>
+                    
+                </div>
+                </div>
+              
+                
+             
+            </div>
+          </div>
+  
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% endblock %}
