@@ -18,28 +18,45 @@ def index(request):
     total_achievement = Achievement.objects.all()
     count_achievement = len(total_achievement)
     testimonial_data = Testimonial.objects.all()
-    # for i in do_data:
-    #     print(i.we_do)
+    
     data = {'event_data':event_data,'about_data':about_data,
     'do_data':do_data,'count_member':count_member,
     'count_publication':count_publication,
     'count_achievement':count_achievement,
     'testimonial_data':testimonial_data,}
 
-    # for i in count_member:
-    #     print(i)
+   
 
     return render(request, 'index.html',data)
 
 
 def blog(request):
-    research_blog = Research.objects.all()
-    re_data_blog = {'research_blog': research_blog}
+
+    category = request.GET.get('category')
+    research_category = Research_Category.objects.all()
+
+
+    if category == None:
+        research_blog = Research.objects.all()
+        
+    else:
+        research_blog = Research.objects.filter(category__name=category)
+
+
+
+    
+   
+    re_data_blog = {'research_category': research_category,
+    'research_blog': research_blog}
     return render(request, 'blog.html',re_data_blog)
     
 def research(request):
+
+    research_category = Research_Category.objects.all()
     research = Research.objects.all()
-    re_data = {'research': research,}
+
+   
+    re_data = {'research_category': research_category,}
     return render(request, 'research.html',re_data)
 
 def join(request):
@@ -103,33 +120,11 @@ def team(request):
     'researcher_data':researcher_data,'member_data':member_data,}
     return render(request, 'team.html',team_data)
 
-def publication(request):
-
-
-    category = request.GET.get('category')
-
-    if category == None:
-        journal = Publication.objects.filter(publication_type='J')
-        conference = Publication.objects.filter(publication_type='C')
-    else:
-        journal = Publication.objects.filter(category__published_year=category)
-        conference = Publication.objects.filter(category__published_year=category)
-
-    publication = Publication.objects.all()
-    categories = Year.objects.all()
-    # journal = Publication.objects.filter(publication_type='J')
-    conference = Publication.objects.filter(publication_type='C')
-    pub_data = {'publication': publication,
-    'journal': journal,'conference': conference,
-    'categories': categories}
-    # for i in publication:
-    #     print(i.reference)
-    return render(request, 'publication.html',pub_data)
 
 
 def journal(request):
     category = request.GET.get('category')
-    categories = Year.objects.all()
+    categories = Year_of_Publication.objects.all()
 
 
     if category == None:
@@ -144,7 +139,7 @@ def journal(request):
 
 def conference(request):
     category = request.GET.get('category')
-    categories = Year.objects.all()
+    categories = Year_of_Publication.objects.all()
 
 
     if category == None:

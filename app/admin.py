@@ -2,15 +2,15 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 admin.site.register(Team)
-admin.site.register(Publication)
+admin.site.register(Research_Category)
 admin.site.register(Research)
 admin.site.register(About)
 admin.site.register(WE_DO)
 admin.site.register(Achievement)
-admin.site.register(Client)
+
 admin.site.register(Testimonial)
 admin.site.register(Event)
-admin.site.register(Year)
+admin.site.register(Year_of_Publication)
 admin.site.register(Conference)
 admin.site.register(Journal)
 # admin.site.register(EventImage)

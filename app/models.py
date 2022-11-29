@@ -10,11 +10,6 @@ class WE_DO(models.Model):
 
 
 
-class Client(models.Model):
-    image = models.ImageField(upload_to="clients/%y",null=True)
-
-
-
 class Testimonial(models.Model):
     name = models.CharField(max_length=50)
     designation = models.CharField(max_length=30)
@@ -31,14 +26,24 @@ class Achievement(models.Model):
         return self.title
 
 
-class Research(models.Model):
-    name = models.CharField(max_length=50)
-    title = models.CharField(max_length=100)
-    description = models.TextField(max_length=1000)
-    image = models.ImageField(upload_to="research/%y",null=True)
 
+class Research_Category(models.Model):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="research/%y",null=True)
     def __str__(self):
         return self.name
+
+
+
+class Research(models.Model):
+    
+    category = models.ForeignKey(Research_Category,on_delete=models.CASCADE, default=True)
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000)
+   
+
+    def __str__(self):
+        return str(self.category)
 
 
 
@@ -72,34 +77,17 @@ class Team(models.Model):
     def __str__(self):
         return self.name
 
-class Year(models.Model):
+class Year_of_Publication(models.Model):
     published_year = models.CharField(max_length=5)
 
     def __str__(self):
         return str(self.published_year)
 
-class Publication(models.Model):
 
-    JOURNAL_PUBLICATION = "J"
-    CONFERENCE_PUBLICATION = "C"
-
-    JOURNAL_CHOICES = [
-        (JOURNAL_PUBLICATION, "JOURNAL_PUBLICATION"),
-        (CONFERENCE_PUBLICATION, "CONFERENCE_PUBLICATION"),
-    ]
-
-    publication_type = models.CharField(max_length=1,choices=JOURNAL_CHOICES, default=JOURNAL_PUBLICATION)
-    
-    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
-    reference = models.TextField(max_length=500, default=True)
-    paper_link = models.URLField(max_length=300,blank=True)
-
-    def __str__(self):
-        return str(self.category)
 class Journal(models.Model):
 
     paper_type = models.CharField(max_length=10,default="Journal")
-    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
+    category = models.ForeignKey(Year_of_Publication,on_delete=models.CASCADE, default=True)
     reference = models.TextField(max_length=500, default=True)
     paper_link = models.URLField(max_length=300,blank=True)
 
@@ -110,7 +98,7 @@ class Journal(models.Model):
 class Conference(models.Model):
 
     paper_type = models.CharField(max_length=10,default="Conference")
-    category = models.ForeignKey(Year,on_delete=models.CASCADE, default=True)
+    category = models.ForeignKey(Year_of_Publication,on_delete=models.CASCADE, default=True)
     reference = models.TextField(max_length=500, default=True)
     paper_link = models.URLField(max_length=300,blank=True)
 

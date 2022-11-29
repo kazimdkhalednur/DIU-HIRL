@@ -26,37 +26,37 @@
       <div class="container position-relative">
         <div class="row gy-4 mt-5">
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><img src="https://img.icons8.com/fluency/64/null/bullish.png"/></div>
-              <h4 class="title"><a class="stretched-link">Data Analytics in healthcare</a></h4>
+              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}">Data Analytics in healthcare</a></h4>
             </div>
-          </div>
+          </div> -->
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><img src="https://img.icons8.com/fluency/64/null/heart-with-pulse.png"/></div>
-              <h4 class="title"><a class="stretched-link">Application in healthcare</a></h4>
+              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}">Application in healthcare</a></h4>
             </div>
-          </div>
+          </div> -->
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/null/external-medical-report-biochemistry-and-medicine-healthcare-flatart-icons-flat-flatarticons-1.png"/></div>
-              <h4 class="title"><a class="stretched-link"> Medical imaging</a></h4>
+              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}"> Medical imaging</a></h4>
             </div>
-          </div>
+          </div> -->
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
               <div class="icon"><img src="https://img.icons8.com/fluency/64/null/artificial-intelligence.png"/></div>
             
-              <h4 class="title"><a class="stretched-link"> Computer Vision and ML</a></h4>
+              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}"> Computer Vision and ML</a></h4>
             </div>
-          </div>
+          </div> -->
           <!--End Icon Box -->
 
         </div>
@@ -70,13 +70,13 @@
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+    <!-- <section id="about" class="about"> -->
+      <div id="about" class="container" data-aos="fade-up">
 
-        <div class="section-header">
+        <!-- <div class="section-header">
           <h2>About Us</h2>
           <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
-        </div>
+        </div> -->
 
         <div>
           <div class="row gy-4 mt-4" data-aos="fade-up" data-aos-delay="100">
@@ -89,10 +89,8 @@
 
                   <div class="content ps-0 ps-lg-5">
                     {% for l in about_data %}
-                    <ul>
-                      <li><i class="bi bi-check-circle-fill"></i>{{l.mission}}</li>
-                     
-                    </ul>
+                    <p>{{l.mission}}</p>
+                   
                     {% endfor %} 
                   </div>
                 </div>
@@ -112,10 +110,8 @@
 
                   <div class="content ps-0 ps-lg-5">
                     {% for l in about_data %}
-                    <ul>
-                      <li><i class="bi bi-check-circle-fill"></i>{{l.vision}}</li>
-                     
-                    </ul>
+                    <p>{{l.vision}}</p>
+                    
                     {% endfor %}
                   </div>
                 </div>
@@ -136,7 +132,7 @@
                   <div class="content ps-0 ps-lg-5">
                     {% for i in do_data %}
                     <ul>
-                      <li><i class="bi bi-check-circle-fill"></i> {{i.we_do}}</li>
+                      <li>{{i.we_do}}</li>
                     </ul>
                     {% endfor %}
                   </div>
@@ -180,7 +176,7 @@
     </section>
 
       </div>
-    </section><!-- End About Us Section -->
+    <!-- </section> -->
 
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter">
@@ -215,7 +211,7 @@
         </div>
 
       </div>
-    </section><!-- End Stats Counter Section -->
+    <!-- </section> -->
 
 
     <!-- ======= Testimonials Section ======= -->

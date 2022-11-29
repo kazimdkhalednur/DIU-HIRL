@@ -6,7 +6,7 @@
     <div class="container " data-aos="fade-up">
 
       <div class="section-header">
-        <h2>Current Research</h2>
+        <h2>Research Category</h2>
         <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
       </div>
 
@@ -15,14 +15,13 @@
         <div class="">
           
           <div class="row gy-4 portfolio-container d-flex justify-content-center">
-            {% for i in research %}
-            <div class="col-xl-3 col-md-6 portfolio-item ">
+            
+            {% for i in research_category %}
+            <div class="col-xl-4 col-md-6 portfolio-item ">
               <div class="portfolio-wrap">
+                
                 <a href="{{i.image.url}}" data-gallery="portfolio-gallery-app"  class="glightbox"><img src="{{i.image.url}}" width="260" height="200" class="" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="{% url 'blog' %}" title="More Details">{{i.name}}</a></h4>
-                 
-                </div>
+                <h4><a href="{% url 'blog' %}" title="More Details">{{i.name}}</a></h4>
               </div>
             </div>
             {% endfor %} 
