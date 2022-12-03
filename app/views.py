@@ -126,7 +126,6 @@ def journal(request):
     category = request.GET.get('category')
     categories = Year_of_Publication.objects.all()
 
-
     if category == None:
         journal = Journal.objects.all()
         
@@ -138,6 +137,7 @@ def journal(request):
     return render(request, 'journal.html',data)
 
 def conference(request):
+
     category = request.GET.get('category')
     categories = Year_of_Publication.objects.all()
 
@@ -155,12 +155,8 @@ def conference(request):
 
 
 def event(request):
-    event_data = Event.objects.all()
-    # event_img = EventImage.objects.all()
-        
-    # for i in event_data:
-    #     print(i.title,i.drive_link,i.image)
-    # print("******")
 
+    event_data = Event.objects.all()
+  
     data = {'event_data': event_data}
     return render(request, 'event.html',data)
