@@ -13,6 +13,8 @@ admin.site.register(Event)
 admin.site.register(Year_of_Publication)
 admin.site.register(Conference)
 admin.site.register(Journal)
+admin.site.register(Dataset)
+admin.site.register(Github)
 # admin.site.register(EventImage)
 
 # class EventImageAdmin(admin.StackedInline):

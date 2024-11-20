@@ -34,26 +34,29 @@ def blog(request):
 
     category = request.GET.get('category')
     research_category = Research_Category.objects.all()
-
-
     if category == None:
         research_blog = Research.objects.all()
-        
     else:
         research_blog = Research.objects.filter(category__name=category)
 
-
-
     
-   
     re_data_blog = {'research_category': research_category,
     'research_blog': research_blog}
     return render(request, 'blog.html',re_data_blog)
+
+def dataset(request):
+    all_dataset_data = Dataset.objects.all()
+    return render(request, 'dataset.html', {'dataset_data': all_dataset_data})
+
+def github(request):
+
+    all_github_data = Github.objects.all()
+    return render(request, 'github.html',{'all_github_data': all_github_data})
     
 def research(request):
 
     research_category = Research_Category.objects.all()
-    research = Research.objects.all()
+    
 
    
     re_data = {'research_category': research_category,}
@@ -109,18 +112,33 @@ def contact(request):
 
     return render(request, 'contact.html')
     
-def team(request):
+
+
+def researchers(request):
     director_data = Team.objects.filter(m_post='LD')
-    advisor_data = Team.objects.filter(m_post='LA')
-    coordinator_data = Team.objects.filter(m_post='RC')
-    researcher_data = Team.objects.filter(m_post='R')
-    member_data = Team.objects.filter(m_post='LM')
+    faculty_researcher_data = Team.objects.filter(m_post='RF')
+    student_researcher_data = Team.objects.filter(m_post='RS')
+    alumni_researcher_data = Team.objects.filter(m_post='RA')
     team_data = {'director_data':director_data,
-    'advisor_data':advisor_data,'coordinator_data':coordinator_data,
-    'researcher_data':researcher_data,'member_data':member_data,}
-    return render(request, 'team.html',team_data)
+                 'faculty_researcher_data':faculty_researcher_data,
+                 'student_researcher_data':student_researcher_data,
+                 'alumni_researcher_data':alumni_researcher_data,
+                 }
+    return render(request, 'researchers.html',team_data)
 
+def international_cola(request):
+    international_colla_data = Team.objects.filter(m_post='IC')
+    
+    team_data = {'international_colla_data':international_colla_data,
+   }
+    return render(request, 'international_cola.html',team_data)
 
+def advisor_committee(request):
+    
+    advisor_data = Team.objects.filter(m_post='LA')
+   
+    team_data = {'advisor_data':advisor_data,}
+    return render(request, 'advisor_committee.html',team_data)
 
 def journal(request):
     category = request.GET.get('category')

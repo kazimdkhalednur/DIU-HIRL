@@ -21,7 +21,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="#hero" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{% static 'app/assets/img/logo.png' %}" alt="">
+        <img src="{% static 'app/assets/img/hirl_logo_2023.png' %}" alt="">
         <!-- <h1>HIRL<span>.</span></h1> -->
       </a>
       <nav id="navbar" class="navbar">
@@ -29,7 +29,15 @@
           <li><a href="{% url 'index' %}">Home</a></li>
           
           <li><a href="{% url 'research' %}">Research</a></li>
-          <li><a href="{% url 'team' %}">Team</a></li>
+          
+          <li class="dropdown"><a href="#team"><span>Team</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'researchers' %}">Researchers</a></li>
+              <li><a href="{% url 'international_cola' %}">International Collaborator</a></li>
+              <li><a href="{% url 'advisor_committee' %}">Advisory Committee</a></li>
+            </ul>
+          </li>
+
          
           <li class="dropdown"><a href="#publication"><span>Publications</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -38,12 +46,26 @@
             </ul>
           </li>
           <li><a href="{% url 'event' %}">Events</a></li>
+
+          <li class="dropdown"><a href="#resources"><span>Resources</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'dataset' %}">Dataset</a></li>
+              <li><a href="{% url 'github' %}">Github</a></li>
+            </ul>
+          </li>
+
           <li><a href="{% url 'join' %}">Join</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
           
           
         </ul>
       </nav><!-- .navbar -->
+
+      <a href="#hero" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{% static 'app/assets/img/images.png' %}" alt="">
+        <!-- <h1>HIRL<span>.</span></h1> -->
+      </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>

@@ -26,12 +26,18 @@ urlpatterns = [
    
     path('event/', event, name='event'),
     path('research/', research, name='research'),
-    path('team/', team, name='team'),
+    # path('team/', team, name='team'),
+    path('researchers/', researchers, name='researchers'),
+    path('international_cola/', international_cola, name='international_cola'),
+    path('advisor_committee/', advisor_committee, name='advisor_committee'),
     path('join/', join, name='join'),
     path('contact/', contact, name='contact'),
     path('journal/', journal, name='journal'),
     path('conference/', conference, name='conference'),
+    path('dataset/', dataset, name='dataset'),
+    path('github/', github, name='github'),
 ]
 
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

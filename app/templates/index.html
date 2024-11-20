@@ -16,48 +16,13 @@
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2">
-          <img src="{% static 'app/assets/img/hero-img.png' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
-        </div>
+        
       </div>
     </div>
 
     <div class="icon-boxes position-relative">
       <div class="container position-relative">
         <div class="row gy-4 mt-5">
-
-          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><img src="https://img.icons8.com/fluency/64/null/bullish.png"/></div>
-              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}">Data Analytics in healthcare</a></h4>
-            </div>
-          </div> -->
-          <!--End Icon Box -->
-
-          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><img src="https://img.icons8.com/fluency/64/null/heart-with-pulse.png"/></div>
-              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}">Application in healthcare</a></h4>
-            </div>
-          </div> -->
-          <!--End Icon Box -->
-
-          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/null/external-medical-report-biochemistry-and-medicine-healthcare-flatart-icons-flat-flatarticons-1.png"/></div>
-              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}"> Medical imaging</a></h4>
-            </div>
-          </div> -->
-          <!--End Icon Box -->
-
-          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon-box">
-              <div class="icon"><img src="https://img.icons8.com/fluency/64/null/artificial-intelligence.png"/></div>
-            
-              <h4 class="title"><a class="stretched-link" href="{% url 'research' %}"> Computer Vision and ML</a></h4>
-            </div>
-          </div> -->
-          <!--End Icon Box -->
 
         </div>
       </div>
@@ -71,65 +36,48 @@
 
     <!-- ======= About Us Section ======= -->
     <!-- <section id="about" class="about"> -->
-      <div id="about" class="container" data-aos="fade-up">
+     
 
-        <!-- <div class="section-header">
-          <h2>About Us</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
-        </div> -->
+        <section id="services" class="services sections-bg">
+          <div id="about" class="container" data-aos="fade-up">
 
-        <div>
-          <div class="row gy-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="">
-              <div class="service-item  position-relative">
-                <div class="card" style="width: auto;">
-                  <div class="card-body">
-                    <h4 class="text-center card-title">Our Mission</h4>
-                  </div>
 
-                  <div class="content ps-0 ps-lg-5">
-                    {% for l in about_data %}
-                    <p>{{l.mission}}</p>
-                   
-                    {% endfor %} 
-                  </div>
+            <div class="row gy-4 mt-2 d-flex justify-content-start">
+                  
+              {% for l in about_data %}
+              <div class="col-xl-12 col-md-6 d-flex">
+                <div class="service-item  position-relative">
+                  <h4 class="text-center card-title">Our Mission</h4>
+                  <br>
+                  <p class="card-text">{{l.mission}}</p>
+                </div>
+              </div><!-- End Service Item -->
+              {% endfor %} 
+                
+            </div>
+
+            <div class="row gy-4 mt-2 d-flex justify-content-start">
+                  
+              {% for l in about_data %}
+              <div class="col-xl-12 col-md-6 d-flex">
+                <div class="service-item  position-relative">
+                  <h4 class="text-center card-title">Our Vision</h4>
+                  <br>
+                  <p class="card-text">{{l.vision}}</p>
                 </div>
               </div>
+              {% endfor %} 
+                
             </div>
-          </div>
-        </div>
 
-        <div>
-          <div class="row gy-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="">
-              <div class="service-item  position-relative">
-                <div class="card" style="width: auto;">
-                  <div class="card-body">
-                    <h4 class="text-center card-title">Our Vision</h4>
-                  </div>
-
-                  <div class="content ps-0 ps-lg-5">
-                    {% for l in about_data %}
-                    <p>{{l.vision}}</p>
-                    
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="row gy-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="">
-              <div class="service-item  position-relative">
-                <div class="card" style="width: auto;">
-                  <div class="card-body">
-                    <h4 class="text-center card-title">What We Do!</h4>
-                  </div>
-
-                  <div class="content ps-0 ps-lg-5">
+            <div class="row gy-4 mt-2 d-flex justify-content-start">
+                  
+              {% for l in about_data %}
+              <div class="col-xl-12 col-md-6 d-flex">
+                <div class="service-item  position-relative">
+                  <h4 class="text-center card-title">What We Do!</h4>
+                  <br>
+                  <div>
                     {% for i in do_data %}
                     <ul>
                       <li>{{i.we_do}}</li>
@@ -137,12 +85,14 @@
                     {% endfor %}
                   </div>
                 </div>
-              </div>
+              </div><!-- End Service Item -->
+              {% endfor %} 
+                
             </div>
-          </div>
-        </div>
+    
+        </section>
 
-            
+        
 
             <!-- ======= Event Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -185,7 +135,7 @@
         <div class="row gy-4 align-items-center">
 
           <div class="col-lg-6">
-            <img src="{% static 'app/assets/img/stats-img.svg' %}" alt="" class="img-fluid">
+            <img src="{% static 'app/assets/img/7F9A0579.JPG' %}" alt="" class="img-fluid">
           </div>
 
           <div class="col-lg-6">
@@ -261,6 +211,33 @@
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.querySelector("#hero");
+        const images = [
+            "{% static 'app/assets/img/cta-bg.jpg' %}",
+            "{% static 'app/assets/img/13.jpg' %}",
+        ];
+  
+        let currentIndex = 0;
+  
+        function changeBackgroundImage() {
+            heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+  
+        
+  
+        // Initial background image
+        changeBackgroundImage();
+  
+        // Change image every 5 seconds (5000 milliseconds)
+        setInterval(changeBackgroundImage, 5000);
+    });
+  </script>
+  
+  
 
 
 {% endblock %}
