@@ -6,13 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0011_delete_message'),
+        ("app", "0011_delete_message"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='members',
-            name='m_post',
-            field=models.CharField(choices=[('LD', 'LAB_DIRECTOR'), ('RC', 'RESEARCH_COORDINATOR'), ('R', 'RESEARCHER'), ('LM', 'LAB_MEMBER')], default='LM', max_length=2),
+            model_name="members",
+            name="m_post",
+            field=models.CharField(
+                choices=[
+                    ("LD", "LAB_DIRECTOR"),
+                    ("RC", "RESEARCH_COORDINATOR"),
+                    ("R", "RESEARCHER"),
+                    ("LM", "LAB_MEMBER"),
+                ],
+                default="LM",
+                max_length=2,
+            ),
         ),
     ]

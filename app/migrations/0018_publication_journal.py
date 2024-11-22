@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0017_auto_20221122_0840'),
+        ("app", "0017_auto_20221122_0840"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='publication',
-            name='journal',
-            field=models.CharField(choices=[('P', 'JOURNAL_PUBLICATION'), ('C', 'CONFERENCE_PUBLICATION')], default='P', max_length=1),
+            model_name="publication",
+            name="journal",
+            field=models.CharField(
+                choices=[("P", "JOURNAL_PUBLICATION"), ("C", "CONFERENCE_PUBLICATION")],
+                default="P",
+                max_length=1,
+            ),
         ),
     ]

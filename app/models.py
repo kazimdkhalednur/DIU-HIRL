@@ -168,6 +168,7 @@ class Footer(models.Model):
 
 class Carousel(models.Model):
     image = models.ImageField(upload_to="carousel/")
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.image.url

@@ -6,28 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0013_auto_20221120_2200'),
+        ("app", "0013_auto_20221120_2200"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='members',
-            name='google_scholor',
+            model_name="members",
+            name="google_scholor",
             field=models.URLField(blank=True),
         ),
         migrations.AddField(
-            model_name='members',
-            name='orcid',
+            model_name="members",
+            name="orcid",
             field=models.URLField(blank=True),
         ),
         migrations.AddField(
-            model_name='members',
-            name='research_gate',
+            model_name="members",
+            name="research_gate",
             field=models.URLField(blank=True),
         ),
         migrations.AlterField(
-            model_name='members',
-            name='linkedin',
+            model_name="members",
+            name="linkedin",
             field=models.URLField(blank=True),
         ),
     ]

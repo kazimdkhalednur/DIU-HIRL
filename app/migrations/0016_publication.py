@@ -6,17 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0015_remove_members_fb'),
+        ("app", "0015_remove_members_fb"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Publication',
+            name="Publication",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('publisher_name', models.CharField(max_length=30)),
-                ('research_title', models.TextField(max_length=1000)),
-                ('paper_link', models.URLField(blank=True, max_length=300)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("publisher_name", models.CharField(max_length=30)),
+                ("research_title", models.TextField(max_length=1000)),
+                ("paper_link", models.URLField(blank=True, max_length=300)),
             ],
         ),
     ]

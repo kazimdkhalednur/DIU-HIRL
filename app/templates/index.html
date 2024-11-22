@@ -216,8 +216,9 @@
     document.addEventListener("DOMContentLoaded", function () {
         const heroSection = document.querySelector("#hero");
         const images = [
-            "{% static 'app/assets/img/cta-bg.jpg' %}",
-            "{% static 'app/assets/img/13.jpg' %}",
+          {% for carousel in carousels %}
+              "{{ carousel.image.url }}",
+          {% endfor %} 
         ];
   
         let currentIndex = 0;

@@ -6,21 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0033_remove_event_image'),
+        ("app", "0033_remove_event_image"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='event',
-            name='drive_link',
+            model_name="event",
+            name="drive_link",
             field=models.URLField(blank=True, max_length=300),
         ),
         migrations.AddField(
-            model_name='event',
-            name='image',
-            field=models.FileField(blank=True, upload_to=''),
+            model_name="event",
+            name="image",
+            field=models.FileField(blank=True, upload_to=""),
         ),
         migrations.DeleteModel(
-            name='EventImage',
+            name="EventImage",
         ),
     ]

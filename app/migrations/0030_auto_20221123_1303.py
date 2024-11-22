@@ -6,23 +6,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0029_auto_20221123_1257'),
+        ("app", "0029_auto_20221123_1257"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Achievement',
+            name="Achievement",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100)),
             ],
         ),
         migrations.DeleteModel(
-            name='CurrentResearch',
+            name="CurrentResearch",
         ),
         migrations.AlterField(
-            model_name='eventimage',
-            name='images',
-            field=models.FileField(upload_to='event/%y'),
+            model_name="eventimage",
+            name="images",
+            field=models.FileField(upload_to="event/%y"),
         ),
     ]

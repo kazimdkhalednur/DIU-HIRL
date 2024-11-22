@@ -6,18 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0031_client'),
+        ("app", "0031_client"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Testimonial',
+            name="Testimonial",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('designation', models.CharField(max_length=30)),
-                ('feedback', models.TextField(max_length=1000)),
-                ('image', models.ImageField(null=True, upload_to='testimonial/%y')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("designation", models.CharField(max_length=30)),
+                ("feedback", models.TextField(max_length=1000)),
+                ("image", models.ImageField(null=True, upload_to="testimonial/%y")),
             ],
         ),
     ]

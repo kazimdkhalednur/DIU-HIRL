@@ -5,9 +5,7 @@
 __pycache__
 *.sqlite3
 media
-static
-**/migrations/*.py
-!**/migrations/__init__.py
+staticfiles
 tmp/
 logs/
 log/

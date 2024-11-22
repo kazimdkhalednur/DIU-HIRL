@@ -1,4 +1,6 @@
 {% load static %}
+{% load contact_tags %}
+
  
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
@@ -11,10 +13,13 @@
           </a>
           <p>Enrich Research Community, Create Job Opportunities, International Colleboration, Work with Local Data</p>
           <div class="social-links d-flex mt-4">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="https://www.facebook.com/groups/hirlab" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            {% if get_youtube %}
+            ok
+            {% endif %}
+            <a href="{% get_twitter %}" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="{% get_facebook %}" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="{% get_instagram %}" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="{% get_linkedin %}" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
@@ -37,8 +42,8 @@
             Daffodil International University <br>
             Daffodil Smart City, Ashulia, Dhaka<br>
             Bangladesh <br><br>
-            <strong>Phone:</strong> +8801672580748<br>
-            <strong>Email:</strong> diu-hirl@diu.edu.bd<br>
+            <strong>Phone:</strong> {% get_phone %}<br>
+            <strong>Email:</strong> {% get_email %}<br>
           </p>
 
         </div>
