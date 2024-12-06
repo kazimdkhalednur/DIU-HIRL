@@ -77,9 +77,14 @@ class Team(models.Model):
     orcid = models.URLField(max_length=200, blank=True)
     linkedin = models.URLField(max_length=200, blank=True)
     img = models.ImageField(upload_to="img/%y")
+    position = models.PositiveIntegerField(default=0, blank=False, null=False)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["position"]
 
 
 class Year_of_Publication(models.Model):
@@ -172,6 +177,7 @@ class Carousel(models.Model):
 
     def __str__(self):
         return self.image.url
+
 
 class MemberCarousel(models.Model):
     image = models.ImageField(upload_to="member_carousel/")

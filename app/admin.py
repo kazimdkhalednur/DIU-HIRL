@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.http import HttpRequest
+from adminsortable2.admin import SortableAdminMixin
 
 from .models import *
 
-# Register your models here.
-admin.site.register(Team)
+# Register your models here.=
 admin.site.register(Research_Category)
 admin.site.register(Research)
 admin.site.register(About)
@@ -47,3 +47,8 @@ class FooterAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+
+@admin.register(Team)
+class SortableBookAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ["position", "name", "m_post", "designation"]

@@ -2,132 +2,213 @@
 {% load static %}
 {% block body %}
 
-    <!-- ======= Our Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
+  <div class="container" data-aos="fade-up">
 
-        <div>
+    <div class="mt-4">
 
-          <div class="mt-4">
-            <div class="section-header">
-              <h2 class="">Lab Director</h2>
-            </div>
-    
-            <div class="row gy-4 mt-2 d-flex justify-content-center">
-              {% for l in director_data %}
-              <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
-                <div class="member">
-                  <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
-                  <h4>{{l.name}}</h4>
-                  <span>{{l.designation}}</span>
-                  <span>{{l.institution}}</span>
-                  <span>{{l.email}}</span>
-                  <div class="social">
-                    <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
-                    <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
-                    <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
-                    <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
-                  
-                  </div>
-                </div>
-              </div>
-              {% endfor %}  
-            </div>
-          </div>
-
-
-        <div class="mt-4">
-          <div class="section-header">
-            <h2 class="mt-5">Faculty Research Members</h2>
-            
-          </div>
-  
-          <div class="row gy-4 mt-2 d-flex justify-content-center">
-            {% for l in faculty_researcher_data %}
-            <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
-                <h4>{{l.name}}</h4>
-                <span>{{l.designation}}</span>
-                <span>{{l.institution}}</span>
-                <span>{{l.email}}</span>
-                <div class="social">
-                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
-                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
-                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
-                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
-                
-                </div>
-              </div>
-            </div>
-            {% endfor %}  
-          </div>
+      {% if director_data %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="">Lab Director</h2>
         </div>
 
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in director_data %}
+          <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <span>{{l.institution}}</span>
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
 
-        <div class="mt-4">
-          <div class="section-header">
-            <h2 class="mt-5">Student Research Members</h2>
-          </div>
-  
-          <div class="row gy-4 mt-2 d-flex justify-content-center">
-            {% for l in student_researcher_data %}
-            <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <img src="{{l.img.url}}" width="230" height="200" class="" alt="Photo">
-                <h4>{{l.name}}</h4>
-                <span>{{l.designation}}</span>
-                <span>{{l.institution}}</span>
-                <span>{{l.email}}</span>
-                <div class="social">
-                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
-                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
-                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
-                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
-                
-                </div>
               </div>
             </div>
-            {% endfor %}  
           </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if advisor_data %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="">Lab Advisor</h2>
         </div>
 
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in advisor_data %}
+          <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <span>{{l.institution}}</span>
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
 
-        <div class="mt-4">
-          <div class="section-header">
-            <h2 class="mt-5">Alumni Research Fellow</h2>
-          </div>
-  
-          <div class="row gy-4 mt-2 d-flex justify-content-center">
-            {% for l in alumni_researcher_data %}
-            <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <img src="{{l.img.url}}" width="230" height="200" class="" alt="Photo">
-                <h4>{{l.name}}</h4>
-                <span>{{l.designation}}</span>
-                <!-- <span>{{l.institution}}</span> -->
-                <span>{{l.email}}</span>
-                <div class="social">
-                  <a href="{{l.google_scholor}}"><img src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png"/></a>
-                  <a href="{{l.research_gate}}"><img src="https://img.icons8.com/windows/32/null/researchgate.png"/></i></a>
-                  <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png"/></a>
-                  <a href="{{l.linkedin}}"><img src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png"/></a>
-                
-                </div>
               </div>
             </div>
-            {% endfor %}  
           </div>
+          {% endfor %}
         </div>
-       
+      </div>
+      {% endif %}
 
-      </div class="mt-4">
-    </section><!-- End Our Team Section -->
+      {% if inter_collaborator %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="">International Collaborator</h2>
+        </div>
+
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in inter_collaborator %}
+          <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <span>{{l.institution}}</span>
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if faculty_researcher_data %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="mt-5">Faculty Research Members</h2>
+
+        </div>
+
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in faculty_researcher_data %}
+          <div class="col-xl-4 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="350" height="300" class="img-fluid" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <span>{{l.institution}}</span>
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if student_researcher_data %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="mt-5">Student Research Members</h2>
+        </div>
+
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in student_researcher_data %}
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="230" height="200" class="" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <span>{{l.institution}}</span>
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if alumni_researcher_data %}
+      <div class="mt-4">
+        <div class="section-header">
+          <h2 class="mt-5">Alumni Research Fellow</h2>
+        </div>
+
+        <div class="row gy-4 mt-2 d-flex justify-content-center">
+          {% for l in alumni_researcher_data %}
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{l.img.url}}" width="230" height="200" class="" alt="Photo">
+              <h4>{{l.name}}</h4>
+              <span>{{l.designation}}</span>
+              <!-- <span>{{l.institution}}</span> -->
+              <span>{{l.email}}</span>
+              <div class="social">
+                <a href="{{l.google_scholor}}"><img
+                    src="https://img.icons8.com/material-rounded/24/000000/google-scholar.png" /></a>
+                <a href="{{l.research_gate}}"><img
+                    src="https://img.icons8.com/windows/32/null/researchgate.png" /></i></a>
+                <a href="{{l.orcid}}"><img src="https://img.icons8.com/windows/32/null/orcid.png" /></a>
+                <a href="{{l.linkedin}}"><img
+                    src="https://img.icons8.com/material-outlined/24/null/linkedin--v1.png" /></a>
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
 
 
-   
+    </div>
+</section><!-- End Our Team Section -->
 
-    
+
+
+
+
 
 
 
