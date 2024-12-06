@@ -10,6 +10,7 @@ from ..models import (
     Journal,
     Team,
     Testimonial,
+    MemberCarousel,
 )
 
 
@@ -26,6 +27,7 @@ def index(request):
     count_achievement = len(total_achievement)
     testimonial_data = Testimonial.objects.all()
     carousels = Carousel.objects.filter(is_published=True)
+    member_carousels = MemberCarousel.objects.filter(is_published=True)
 
     context = {
         "event_data": event_data,
@@ -36,6 +38,7 @@ def index(request):
         "count_achievement": count_achievement,
         "testimonial_data": testimonial_data,
         "carousels": carousels,
+        "member_carousels": member_carousels,
     }
 
     return render(request, "index.html", context)

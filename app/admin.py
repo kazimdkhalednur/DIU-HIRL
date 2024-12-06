@@ -19,6 +19,7 @@ admin.site.register(Journal)
 admin.site.register(Dataset)
 admin.site.register(Github)
 admin.site.register(Carousel)
+admin.site.register(MemberCarousel)
 # admin.site.register(EventImage)
 
 # class EventImageAdmin(admin.StackedInline):

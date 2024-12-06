@@ -172,3 +172,10 @@ class Carousel(models.Model):
 
     def __str__(self):
         return self.image.url
+
+class MemberCarousel(models.Model):
+    image = models.ImageField(upload_to="member_carousel/")
+    is_published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.image.url
