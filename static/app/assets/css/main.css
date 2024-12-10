@@ -984,6 +984,10 @@ section {
 .services {
   padding: 60px 0;
 }
+/* 
+.services-index{
+  padding-top: -120px !important;
+} */
 
 .services .service-item {
   padding: 40px;
